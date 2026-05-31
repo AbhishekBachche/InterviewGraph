@@ -1,0 +1,20 @@
+{
+  "name": "gdp-agent",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prestart": "bash scripts/ensure-setup.sh",
+    "start": "bash scripts/start.sh",
+    "setup": "bash scripts/bootstrap.sh",
+    "dev": "concurrently -k -n api,ui -c blue,green \"sh scripts/free-api-port.sh 8004 || true; .venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8004 --reload --reload-dir backend --reload-dir utils --reload-dir parsers\" \"wait-on http-get://127.0.0.1:8004/api/health && npm run dev:public --prefix frontend\"",
+    "start:prod": "npm run build --prefix frontend && .venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8004",
+    "build": "npm run build --prefix frontend",
+    "free-api-port": "sh scripts/free-api-port.sh 8004"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "wait-on": "^8.0.1"
+  }
+}

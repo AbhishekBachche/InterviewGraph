@@ -1,0 +1,152 @@
+/**
+ * Premium polish — overrides legacy gradients/shadows on modern components.
+ * Loaded last so shadcn + Tailwind win.
+ */
+
+/* Flat workspace canvas (no route tint gradients) */
+.app-main-column,
+.app-main-column--default,
+.app-main-column--dashboard,
+.app-main-column--resume,
+.app-main-column--matcher,
+.app-main-column--jdqa,
+.app-main-column--interview,
+.app-main-column--assessments,
+.app-main-column--results,
+.app-main-column--datahub {
+  background: var(--palette-bg) !important;
+  background-image: none !important;
+}
+
+/* Cards: clean white surfaces */
+.card:not([data-slot="card"]),
+.he-workflow-card.card {
+  background: var(--palette-card) !important;
+  border: 1px solid var(--palette-border) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+  backdrop-filter: none !important;
+}
+
+.page-intro.page-hero {
+  background: var(--palette-card) !important;
+  border: 1px solid var(--palette-border) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+  backdrop-filter: none !important;
+}
+
+/* Segmented / tab controls — never use CTA button chrome */
+[data-slot="segmented-control"] button,
+button[role="tab"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  margin: 0 !important;
+  min-height: unset !important;
+  font-weight: 500 !important;
+}
+
+[data-slot="segmented-control"] button:hover:not(:disabled),
+button[role="tab"]:hover:not(:disabled) {
+  background: hsl(var(--background) / 0.85) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+[data-slot="segmented-control"] button[aria-selected="true"] {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--heading)) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* shadcn buttons — flat professional blue */
+[data-slot="button"] {
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+[data-slot="button"][data-variant="default"]:hover:not(:disabled) {
+  transform: none !important;
+}
+
+/* Legacy .he-btn aligned with palette */
+.he-btn {
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.he-btn--primary {
+  background: var(--palette-button) !important;
+  border-color: var(--palette-button) !important;
+  color: #fff !important;
+}
+
+.he-btn--primary:hover:not(:disabled) {
+  background: var(--palette-button-hover) !important;
+  border-color: var(--palette-button-hover) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.he-btn--secondary {
+  background: hsl(var(--secondary)) !important;
+  color: hsl(var(--secondary-foreground)) !important;
+  border: 1px solid var(--palette-border) !important;
+}
+
+.he-btn--outline {
+  background: var(--palette-card) !important;
+  border: 1px solid var(--palette-border) !important;
+  color: var(--palette-text) !important;
+}
+
+.he-btn--outline:hover:not(:disabled) {
+  background: var(--palette-button-muted) !important;
+  border-color: #bfdbfe !important;
+  color: var(--palette-button-hover) !important;
+}
+
+.he-segmented__btn--active {
+  background: var(--palette-card) !important;
+  color: var(--palette-heading) !important;
+  border: 1px solid var(--palette-border) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06) !important;
+}
+
+.he-workflow-card__head {
+  background: var(--palette-card) !important;
+  border-bottom: 1px solid var(--palette-border) !important;
+}
+
+.he-step-pill--primary {
+  color: var(--palette-button-hover) !important;
+  background: var(--palette-button-muted) !important;
+  border-color: #bfdbfe !important;
+}
+
+.button-link {
+  background: var(--palette-button) !important;
+  border: 1px solid var(--palette-button) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+}
+
+.button-link:hover {
+  background: var(--palette-button-hover) !important;
+  box-shadow: none !important;
+}
+
+.button-link.secondary {
+  background: hsl(var(--secondary)) !important;
+  color: hsl(var(--secondary-foreground)) !important;
+  border: 1px solid var(--palette-border) !important;
+}
+
+.top-bar__signout-btn,
+.sidebar__signout-btn {
+  box-shadow: none !important;
+}

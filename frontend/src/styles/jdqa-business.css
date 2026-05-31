@@ -1,0 +1,171 @@
+/**
+ * Interview QA — business UI (semantic color zones)
+ * Context = blue · Build = teal · Output = green · Export = indigo
+ */
+
+.he-jdqa-page {
+  --jdqa-context: var(--he-zone-context);
+  --jdqa-context-bg: var(--he-zone-context-bg);
+  --jdqa-context-border: var(--he-zone-context-border);
+  --jdqa-context-muted: var(--he-zone-context-muted);
+  --jdqa-action: var(--he-zone-action);
+  --jdqa-action-bg: var(--he-zone-action-bg);
+  --jdqa-action-border: var(--he-zone-action-border);
+  --jdqa-output: var(--he-zone-output);
+  --jdqa-output-bg: var(--he-zone-output-bg);
+  --jdqa-export: var(--he-zone-export);
+  --jdqa-export-bg: var(--he-zone-export-bg);
+}
+
+/* Shell */
+.he-jdqa-shell {
+  border: 1px solid var(--he-slate-200);
+  box-shadow: var(--he-shadow-md);
+}
+
+/* Zone 1 — Job description (context) */
+.he-jdqa-zone--context {
+  background: linear-gradient(180deg, var(--jdqa-context-bg) 0%, #f8fafc 100%);
+  border-right: 1px solid var(--jdqa-context-border);
+}
+
+.he-jdqa-zone--context .he-jdqa-sidebar__step-badge {
+  background: var(--jdqa-context);
+}
+
+.he-jdqa-zone--context .he-jdqa-sidebar__head-icon {
+  background: #fff;
+  color: var(--jdqa-context);
+  border: 1px solid var(--jdqa-context-border);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.he-jdqa-context-active {
+  background: #fff;
+  border: 1px solid var(--jdqa-context-border);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
+}
+
+.he-jdqa-context-active__icon {
+  color: var(--he-success);
+}
+
+.he-jdqa-context-active__label {
+  color: var(--jdqa-context);
+}
+
+/* Zone 2 — Build workspace */
+.he-jdqa-zone--build .he-jdqa-sidebar__step-badge--main {
+  background: var(--jdqa-action);
+}
+
+.he-jdqa-workspace__body {
+  background: var(--he-slate-100);
+}
+
+.he-jdqa-status-bar--active {
+  background: var(--jdqa-action-bg);
+  border-bottom-color: var(--jdqa-action-border);
+  color: #134e4a;
+}
+
+.he-jdqa-status-bar--active svg {
+  color: var(--jdqa-action);
+}
+
+/* User request bubble */
+.he-jdqa-prompt {
+  background: var(--jdqa-action-bg);
+  border: 1px solid var(--jdqa-action-border);
+}
+
+.he-jdqa-prompt__label {
+  color: #0f766e;
+}
+
+.he-jdqa-composer .he-field__label {
+  font-weight: 700;
+}
+
+.he-jdqa-composer__textarea:focus {
+  border-color: var(--jdqa-action);
+  box-shadow: 0 0 0 3px var(--he-primary-muted);
+}
+
+.he-jdqa-btn-generate.he-btn--primary {
+  background: linear-gradient(180deg, var(--he-primary-bright) 0%, var(--jdqa-action) 100%) !important;
+  border: 1px solid var(--jdqa-action) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 10px rgba(13, 148, 136, 0.28) !important;
+}
+
+.he-jdqa-btn-generate.he-btn--primary:hover:not(:disabled) {
+  box-shadow: var(--he-shadow-hover) !important;
+}
+
+/* Export — distinct from generate */
+.he-jdqa-export-group {
+  background: var(--jdqa-export-bg);
+  border: 1px solid var(--he-zone-export-border);
+}
+
+.he-jdqa-btn-export.he-btn {
+  background: #fff !important;
+  color: var(--jdqa-export) !important;
+  border: 1px solid var(--he-zone-export-border) !important;
+  font-weight: 700 !important;
+}
+
+.he-jdqa-btn-export.he-btn:hover:not(:disabled) {
+  background: var(--jdqa-export-bg) !important;
+  border-color: var(--jdqa-export) !important;
+}
+
+.he-jdqa-generating {
+  border-left: 4px solid var(--jdqa-action);
+}
+
+.he-jdqa-generating__icon,
+.he-jdqa-generating__bars span {
+  color: var(--jdqa-action);
+}
+
+.he-jdqa-generating__bars span {
+  background: var(--jdqa-action);
+}
+
+/* Output pack document */
+.he-jdqa-page .he-pack-doc {
+  border: 1px solid var(--he-zone-output-border);
+}
+
+.he-jdqa-page .he-pack-doc__header {
+  background: linear-gradient(180deg, var(--jdqa-output-bg) 0%, #fff 100%);
+  border-bottom: 1px solid var(--he-zone-output-border);
+}
+
+.he-jdqa-page .he-pack-doc__title {
+  color: var(--jdqa-output);
+}
+
+.he-jdqa-page .he-pack-meta-card {
+  background: #fff;
+  border-color: var(--he-slate-200);
+}
+
+.he-jdqa-page .he-pack-meta-card__label {
+  color: var(--jdqa-context);
+}
+
+.he-jdqa-page .he-pack-q__num {
+  background: linear-gradient(135deg, var(--jdqa-output) 0%, #10b981 100%);
+}
+
+.he-jdqa-page .he-pack-q:has(.he-pack-q__trigger[aria-expanded="true"]) {
+  border-color: var(--he-zone-output-border);
+  box-shadow: 0 2px 12px rgba(5, 150, 105, 0.1);
+}
+
+.he-jdqa-page .he-pack-q__section-title {
+  color: var(--jdqa-output);
+}

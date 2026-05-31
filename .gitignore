@@ -1,0 +1,10 @@
+.venv/
+node_modules/
+frontend/dist/
+GDP_Agent_output/
+HireEaze_output/
+logs/
+__pycache__/
+*.pyc
+.env
+*.log

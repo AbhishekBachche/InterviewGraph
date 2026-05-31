@@ -1,0 +1,56 @@
+/**
+ * InterviewGraph — AI-first dark palette
+ */
+
+:root {
+  --palette-bg: #0b1220;
+  --palette-card: #111827;
+  --palette-brand: #7c3aed;
+  --palette-button: #7c3aed;
+  --palette-button-hover: #6d28d9;
+  --palette-heading: #f8fafc;
+  --palette-text: #cbd5e1;
+  --palette-text-secondary: #94a3b8;
+  --palette-border: #1e293b;
+  --palette-success: #10b981;
+  --palette-warning: #f59e0b;
+  --palette-error: #ef4444;
+  --palette-accent: #06b6d4;
+
+  --background: 222 47% 7%;
+  --foreground: 214 32% 91%;
+  --heading: 210 40% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 214 32% 91%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 214 32% 91%;
+  --primary: 262 83% 58%;
+  --primary-hover: 263 70% 50%;
+  --primary-foreground: 0 0% 100%;
+  --brand: 262 83% 58%;
+  --brand-foreground: 0 0% 100%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 214 32% 91%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 187 92% 42%;
+  --accent-foreground: 222 47% 7%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 160 84% 39%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 222 47% 7%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 262 83% 58%;
+  --radius: 0.75rem;
+
+  --sidebar-background: 222 47% 9%;
+  --sidebar-foreground: 214 32% 91%;
+  --sidebar-primary: 262 83% 58%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 217 33% 15%;
+  --sidebar-accent-foreground: 214 32% 91%;
+  --sidebar-border: 217 33% 17%;
+}
