@@ -1,4 +1,4 @@
-# InterviewGraph (GDP-Agent)
+# InterviewGraph
 
 **Fully AI-automated, agentic interview analysis platform** — from raw audio to hiring recommendation with zero manual scoring. Transcribe interviews, evaluate candidates against job descriptions, and produce evidence-backed reports through an autonomous multi-agent pipeline.
 
@@ -38,7 +38,7 @@ Built for recruiters, hiring managers, and technical interviewers who need fast,
 
 InterviewGraph transforms raw interview audio into structured hiring intelligence through a **fully AI-automated pipeline**. Recruiters only provide two inputs — a job description and a recording — then click one button. Every downstream step (transcription, cleaning, Q&A mapping, skill evaluation, scoring, recommendation, feedback narrative, and PDF generation) runs autonomously via specialist AI agents.
 
-The platform evolved from the HireEaze monolith into a focused **agentic interview analysis** product. Authentication, database persistence, and integrity monitoring were removed for simplicity; JD libraries and analysis artifacts are stored on the local filesystem under `GDP_Agent_output/`.
+InterviewGraph is a standalone platform built for end-to-end interview analysis. Job descriptions and analysis artifacts are stored on the local filesystem under `GDP_Agent_output/` — no external database required.
 
 ### What makes it agentic?
 
@@ -384,7 +384,7 @@ Key methods:
 | `interview_round1.py` | Deterministic Round-1 scoring, weighted sub-ratings, recommendation bands |
 | `jd_mcq_generator.py` | `generate_summary_followup_questions()` — 5 follow-up Qs + skills gap analysis |
 | `json_sanitizer.py` | LLM JSON cleanup |
-| `hireeaze_logging.py` | Structured logging for API and interview flows |
+| `logging utilities` | Structured logging for API and interview flows |
 
 ### Frontend (`frontend/src/`)
 
@@ -397,8 +397,6 @@ Key methods:
 | `components/ui/` | Design system (Button, FileDropzone, Toast, etc.) |
 | `api.ts` | HTTP client + `apiFormPostStream()` SSE parser |
 | `styles/interview-graph.css` | Studio UI layout and CSS animations |
-
-Legacy pages (`ResumeParser.tsx`, `JdMatcher.tsx`, etc.) remain in the repo from the HireEaze fork but are **not routed** in the current app (`App.tsx` only mounts `/interview`).
 
 ---
 
@@ -453,8 +451,8 @@ Legacy pages (`ResumeParser.tsx`, `JdMatcher.tsx`, etc.) remain in the repo from
 ### Quick setup
 
 ```bash
-git clone <your-repo-url>
-cd GDP-Agent
+git clone https://github.com/AbhishekBachche/InterviewGraph.git
+cd InterviewGraph
 
 # One-time bootstrap: venv, pip install, npm install, .env template
 npm run setup
@@ -659,7 +657,7 @@ GDP_Agent_output/interview_analysis/
 
 ## Candidate evaluation & scoring
 
-InterviewGraph evaluates candidates **from interview transcripts**, not from resume uploads in the current release. Evaluation is always **JD-grounded**: mandatory and optional skills extracted from the job description form the rubric.
+InterviewGraph evaluates candidates **from interview transcripts**, grounded in the job description. Mandatory and optional skills extracted from the JD form the evaluation rubric.
 
 ### Evaluation flow
 
@@ -702,10 +700,6 @@ The **Scoring Policy Engine** (`utils/interview_round1.py`) applies deterministi
 | **Rejected** | Does not meet Round-1 bar |
 
 The policy layer includes **scenario rescue floors** — candidates with strong scenario performance are not automatically capped by weak portfolio signals alone.
-
-### Resume analysis (legacy note)
-
-The codebase includes **legacy HireEaze resume parsing** utilities (`config.py`, `ResumeParser.tsx`, document libraries in `requirements.txt`). These are **not exposed** by the current FastAPI backend (`backend/main.py` has no `/api/parse/*` routes). The active product evaluates candidates through **interview audio analysis**. Resume-to-JD matching is planned for a future release (see [Roadmap](#future-roadmap)).
 
 ---
 
@@ -814,7 +808,7 @@ Interactive OpenAPI docs: http://127.0.0.1:8004/docs
 ## Project structure
 
 ```
-GDP-Agent/
+InterviewGraph/
 ├── backend/                 # FastAPI server + agent orchestration
 │   ├── main.py              # API routes
 │   ├── agents/              # LangGraph pipeline
@@ -925,12 +919,12 @@ flowchart TD
 
 | Priority | Enhancement |
 |----------|-------------|
-| **High** | Fully automated follow-up answer transcription and scoring (extend automation to Step 4) |
-| **High** | Resume parsing API re-integration (PDF/DOCX → structured profile → automated JD match) |
-| **High** | Parallel LangGraph branches (hygiene + Q&A + technical overlap for faster automation) |
-| **Medium** | Live transcript streaming during browser record (real-time partial automation) |
+| **High** | Fully automated follow-up answer transcription and scoring |
+| **High** | Resume upload and automated JD matching |
+| **High** | Parallel LangGraph branches for faster pipeline execution |
+| **Medium** | Live transcript streaming during browser record |
 | **Medium** | Multi-candidate comparison dashboard |
-| **Medium** | MCQ + subjective assessment module (utilities exist in `jd_mcq_generator.py`) |
+| **Medium** | MCQ and subjective assessment module |
 | **Medium** | Cloud storage backends (S3/GCS) instead of local filesystem |
 | **Low** | Auth and multi-tenant workspace isolation |
 | **Low** | Database persistence for JD library and audit trail |
@@ -953,9 +947,9 @@ flowchart TD
 
 ## License & attribution
 
-InterviewGraph (GDP-Agent) is derived from the **HireEaze** interview analysis module, refactored into an agentic architecture for standalone deployment.
+**InterviewGraph** — an independent agentic interview analysis platform.
 
-For event submission, ensure `.env` and `GDP_Agent_output/` are **not** committed (already listed in `.gitignore`).
+For public repositories, ensure `.env` and `GDP_Agent_output/` are **not** committed (already listed in `.gitignore`).
 
 ---
 
